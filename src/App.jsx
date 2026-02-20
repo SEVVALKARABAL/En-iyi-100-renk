@@ -17,11 +17,12 @@ export default function App() {
 		Not: colorData dosyaya aktarılmıştır
 */
 
-  function ColorCard() {
+  function ColorCard({color,index}) {
     return (
-      <div className="color-card" style={{ background: "#34568B" }}>
+      <div className="color-card" style={{ background:color}}>
+        
         <p>
-          <span>1.</span> #34568B
+          <span>{index+1}</span> {color}
         </p>
       </div>
     );
@@ -32,8 +33,13 @@ export default function App() {
       <Header />
 
       {/*------ColorCard elementleriniz aşağıda-----------*/}
+      {colorData.map((color,index)=>(
+ <ColorCard key={color}
+ color={color}
+ index={index} />
+      ))}
 
-      <ColorCard />
+     
 
       {/*------ ColorCard elementleriniz yukarıda-----------*/}
     </div>
